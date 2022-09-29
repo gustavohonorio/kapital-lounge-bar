@@ -1,0 +1,8 @@
+<nav id="navbar" class="navbar">
+    <ul>
+        {% for c in categorias %}
+        <li><a href="#menu{{c.id}}">{{c.nome}}</a></li>
+        {% endfor %}
+        <li><a href="#contact">Onde estamos</a></li>
+    </ul>
+</nav><!-- .navbar -->

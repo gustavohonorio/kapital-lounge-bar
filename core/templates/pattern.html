@@ -41,12 +41,8 @@
             <img src="{% static '/img/logo.png' %}" alt="">
         </a>
 
-        <nav id="navbar" class="navbar">
-            <ul>
-                <li><a href="#menu">Cardapio</a></li>
-                <li><a href="#contact">Onde estamos</a></li>
-            </ul>
-        </nav><!-- .navbar -->
+        {% include 'pattern-navbar.html' %}
+        <!-- .navbar -->
 
         <!--<a class="btn-book-a-table" href="#book-a-table">Promoções</a>-->
         <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
