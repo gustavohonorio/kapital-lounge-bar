@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Kapital Lounge Bar - Cardápio</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static '/img/logo.ico' %}" rel="icon">
+    <link href="{% static '/img/logo.ico' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link rel="stylesheet" href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/vendor/bootstrap-icons/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static '/vendor/aos/aos.css' %}">
+    <link rel="stylesheet" href="{% static '/vendor/glightbox/css/glightbox.min.css' %}">
+    <link rel="stylesheet" href="{% static '/vendor/swiper/swiper-bundle.min.css' %}">
+
+    <!-- Template Main CSS File -->
+    <link rel="stylesheet" href="{% static '/css/main.css' %}">
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+        <a href="{% url 'cardapio' %}" class="logo d-flex align-items-center me-auto me-lg-0">
+            <img src="{% static '/img/logo.png' %}" alt="">
+        </a>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a href="#menu">Cardapio</a></li>
+                <li><a href="#contact">Onde estamos</a></li>
+            </ul>
+        </nav><!-- .navbar -->
+
+        <!--<a class="btn-book-a-table" href="#book-a-table">Promoções</a>-->
+        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
+</header><!-- End Header -->
+<main id="main">
+  <br />
+  <br />
+    {% block content %}
+    {% endblock %}
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Iremos amar te receber</h2>
+                <p>Onde <span>Estamos</span></p>
+            </div>
+
+            <div class="mb-3">
+                <iframe style="border:0; width: 100%; height: 350px;"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3699.169687085763!2d-47.890049085860795!3d-22.004808311837223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b87777b9b52449%3A0x61f3f904fbdd8300!2sKapital%20Lounge%20Bar!5e0!3m2!1spt-BR!2sbr!4v1664231927949!5m2!1spt-BR!2sbr"
+                        frameborder="0" allowfullscreen></iframe>
+            </div><!-- End Google Maps -->
+
+        </div>
+    </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer">
+
+    <div class="container">
+        <div class="row gy-3">
+            <div class="col-lg-3 col-md-6 d-flex">
+                <i class="bi bi-geo-alt icon"></i>
+                <div>
+                    <h4>Endereço</h4>
+                    <p>
+                        Av. Trab. São Carlos, 2030 - Parque Arnold Schimidt <br>
+                        São Carlos - SP, 13566-590<br>
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links d-flex">
+                <i class="bi bi-telephone icon"></i>
+                <div>
+                    <h4>Contato</h4>
+                    <p>
+                        <strong>Telefone:</strong> +55 16 99192-9394<br>
+                        <strong>Email:</strong> contato@kapitallougebar.com.br<br>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links d-flex">
+                <i class="bi bi-clock icon"></i>
+                <div>
+                    <h4>Horários</h4>
+                    <p>
+                        <strong>TER - SAB: </strong>18H - 00H<br>
+                        <strong>DOMINGOS: </strong>12H - 18H<br>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Redes Sociais</h4>
+                <div class="social-links d-flex">
+                    <!--<a href="#" class="twitter"><i class="bi bi-twitter"></i></a>-->
+                    <a href="https://www.facebook.com/Kapital-Lounge-Bar-110986231578831" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/kapital_loungebar/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+                    <!--<a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            Copyright &copy; <script>document.write(new Date().getFullYear());</script>
+          | Todos os direitos reservados
+        </div>
+        <div class="credits">
+            Feito com S2 por <a malito="gustavo.honorio@yahoo.com.br">WorshipLab</a>
+        </div>
+    </div>
+
+</footer>
+<!-- End Footer -->
+
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script src="{% static '/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static '/vendor/aos/aos.js' %}"></script>
+<script src="{% static '/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static '/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+<script src="{% static '/vendor/swiper/swiper-bundle.min.js' %}"></script>
+<script src="{% static '/vendor/php-email-form/validate.js' %}"></script>
+
+<!-- Template Main JS File -->
+<script src="{% static '/js/main.js' %}"></script>
+
+</body>
+
+</html>
