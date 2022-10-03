@@ -309,6 +309,10 @@ section {
   background: rgba(206, 18, 18, 0.8);
 }
 
+.btn-editar {
+  background: var(--color-primary);
+}
+
 section {
   scroll-margin-top: 90px;
 }

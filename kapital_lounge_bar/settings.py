@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     # apps
     'core',
+    'gestao',
 ]
 
 MIDDLEWARE = [
