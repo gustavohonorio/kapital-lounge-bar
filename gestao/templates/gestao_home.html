@@ -1,9 +1,9 @@
 {% extends 'pattern.html' %}
 {% block content %}
 <!-- Produtos -->
-<br />
-<br />
-<br />
+<br/>
+<br/>
+<br/>
 <div>
     <div class="section-header">
         <p>Gestão do <span>Cardápio</span></p>
@@ -29,45 +29,71 @@
                         <p class="price">
                             R$ {{p.preco}}
                         </p>
-                        <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal"> Editar <i class="bi bi-pencil-square"></i></button>
+                        <button class="btn btn-dark" data-bs-toggle="modal"
+                                data-bs-target="#ModalEditProduto{{forloop.counter}}"> Editar <i
+                                class="bi bi-pencil-square"></i></button>
                     </div><!-- Menu Item -->
+
                     {% endif %}
                     {% endfor %}
                     <div class="container"><br/>
                         <div class="line"></div>
                     </div>
-
                 </div>
-            </div><!-- End Starter Menu Content -->
+            </div><!-- .End Produtos -->
         </div>
-
     </div>
 </section>
-{% endfor %}
 
-<!-- Modals -->
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+<!-- modals -->
+{% for p in produtos %}
+{% if p.categoria_id == c.id %}
+<!-- start modal edit produto -->
+<div class="modal fade" id="ModalEditProduto{{forloop.counter}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalEditProdutoTitle">Editar Produtos</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- Form -->
+            <div class="modal-body">
+                <form action="">
+                    <div class="mb-3">
+                        <input class="form-control" type="text" placeholder="{{c.nome}}" aria-label="{{c.nome}}" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome"
+                               placeholder="{{p.nome}}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="descricao" class="form-label">Descrição</label>
+                        <textarea class="form-control" id="descricao" rows="3" placeholder="{{p.descricao}}"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="preco" class="form-label">Nome</label>
+                        <input type="number" class="form-control" id="preco"
+                               placeholder="{{p.preco}}">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="cbNovoProduto">
+                        <label class="form-check-label" for="cbNovoProduto">
+                            Adicionar novo produto
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-danger">Salvar</button>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-
+</div><!-- .end modal edit produto -->
+{% endif %}
+{% endfor %}
+<!-- .end modals -->
+{% endfor %}
 {% endblock %}

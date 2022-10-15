@@ -1,6 +1,6 @@
 {% extends 'pattern.html' %}
 {% block content %}
-<!-- ======= Menu Section ======= -->
+<!-- menu section -->
 <br />
 <br />
 <br />
@@ -29,7 +29,8 @@
                         <p class="price">
                             R$ {{p.preco}}
                         </p>
-                    </div><!-- Menu Item -->
+                    </div><!-- menu item -->
+
                     {% endif %}
                     {% endfor %}
                     <div class="container"><br/>
@@ -37,14 +38,14 @@
                     </div>
 
                 </div>
-            </div><!-- End Starter Menu Content -->
+            </div><!-- .end starter menu content -->
         </div>
 
     </div>
-</section><!-- End Menu Section -->
+</section><!-- .end menu section -->
 {% endfor %}
 
 {% include 'pattern-maps.html' %}
-<!-- End Google Maps -->
+<!-- .end google maps -->
 
 {% endblock %}
