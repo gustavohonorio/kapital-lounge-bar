@@ -30,10 +30,15 @@
                         <p class="price">
                             R$ {{p.preco}}
                         </p>
+                        <!-- edit item -->
                         <button class="btn btn-dark" data-bs-toggle="modal"
                                 data-bs-target="#ModalEditProduto{{forloop.counter}}"> Editar <i
                                 class="bi bi-pencil-square"></i></button>
-                    </div><!-- Menu Item -->
+                        <!-- remove item -->
+                        <button class="btn btn-secondary" data-bs-toggle="modal"
+                                data-bs-target="#ModalDeleteProduto{{forloop.counter}}"><i
+                                class="bi bi-trash3"></i></button>
+                    </div><!-- .end menu item -->
 
                     {% endif %}
                     {% endfor %}
@@ -94,6 +99,35 @@
         </div>
     </div>
 </div><!-- .end modal edit produto -->
+
+<!-- modal delete produto  -->
+<div class="modal fade" id="ModalDeleteProduto{{forloop.counter}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalDeleteProdutoTitle">Remover Produto</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- Form -->
+            <div class="modal-body">
+                <form action="." method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="id_produto" value="{{p.id}}">
+
+                    <div class="mb-3">
+                        <label class="form-label">Deseja realmente excluir este produto?</label>
+                        <input type="text" class="form-control" placeholder="{{p.nome}}" disabled>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-danger" name="remover_produto">Remover</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div><!-- .end modal delete produto -->
 {% endif %}
 {% endfor %}
 <!-- .end modals -->
