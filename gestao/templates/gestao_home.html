@@ -1,5 +1,6 @@
 {% extends 'pattern.html' %}
 {% block content %}
+{% load placeholder %}
 <!-- Produtos -->
 <br/>
 <br/>
@@ -15,7 +16,7 @@
         <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
             <div class="tab-pane fade active show" id="menu-starters2">
                 <div class="tab-header text-center">
-                    <h3>{{c.nome}}<span> <i class="bi bi-plus-square-fill"></i></span></h3>
+                    <h3>{{c.nome}}<!--<span><i class="bi bi-plus-square-fill"></i></span>--></h3>
                 </div>
 
                 <div class="row gy-5">
@@ -59,35 +60,36 @@
             </div>
             <!-- Form -->
             <div class="modal-body">
-                <form action="">
+                <form action="." method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="id_produto" value="{{p.id}}">
                     <div class="mb-3">
-                        <input class="form-control" type="text" placeholder="{{c.nome}}" aria-label="{{c.nome}}" disabled>
+                        {{form_p.categoria | placeholder:c.nome}}
                     </div>
                     <div class="mb-3">
-                        <label for="nome" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="nome"
-                               placeholder="{{p.nome}}">
+                        <label class="form-label">Nome</label>
+                        {{form_p.nome | placeholder:p.nome}}
                     </div>
                     <div class="mb-3">
-                        <label for="descricao" class="form-label">Descrição</label>
-                        <textarea class="form-control" id="descricao" rows="3" placeholder="{{p.descricao}}"></textarea>
+                        <label class="form-label">Descrição</label>
+                        {{form_p.descricao  | placeholder:p.descricao}}
                     </div>
                     <div class="mb-3">
-                        <label for="preco" class="form-label">Nome</label>
-                        <input type="number" class="form-control" id="preco"
-                               placeholder="{{p.preco}}">
+                        <label class="form-label">Preço</label>
+                        {{form_p.preco | placeholder:p.preco}}
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="cbNovoProduto">
+                        <input class="form-check-input" type="checkbox" name="cbNovoProduto" id="cbNovoProduto">
+                        {{form_p.is_novo}}
                         <label class="form-check-label" for="cbNovoProduto">
                             Adicionar novo produto
                         </label>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-danger">Salvar</button>
+                    </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-danger">Salvar</button>
             </div>
         </div>
     </div>
