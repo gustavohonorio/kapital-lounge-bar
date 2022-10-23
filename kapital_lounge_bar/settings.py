@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     # others apps
     'django_user_agents',
+    'crispy_forms',
 
     # apps
     'core',
@@ -135,3 +136,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 USER_AGENTS_CACHE = 'default'
+
+LOGIN_REDIRECT_URL = '/gestao'
+
+LOGOUT_REDIRECT_URL = '/accounts/login'
+
+CRISPY_TEMPLATE_PACK = 'uni_form'

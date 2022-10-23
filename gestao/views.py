@@ -1,9 +1,11 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from core.models import Categoria, Produto
 from .forms import ProdutoForm
 
 
+@login_required
 def gestao_home(request):
     if request.method == 'POST':
         if 'remover_produto' in request.POST:

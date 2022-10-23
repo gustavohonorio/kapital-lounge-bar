@@ -1,6 +1,10 @@
 {% load user_agents %}
 <nav id="navbar" class="navbar">
     <ul>
+        {% if user.is_authenticated %}
+        <li><a href="#"><span style="color: #111">Olá, {{ user.username}}</span></a></li>
+        <li><a href="/accounts/logout"><span style="color: #111">Sair da conta</span></a></li>
+        {% endif %}
         {% if request|is_mobile %}
         {% for c in categorias %}
         <li><a href="#menu{{c.id}}">{{c.nome}}</a></li>
